@@ -1,0 +1,107 @@
+/* ATE STYLES */
+/* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+body{
+    background: url("../../img/furley_bg.png") !important;
+}
+.bg-primary{
+    background-color: #00a748!important;
+}
+
+.bg-primary-dark{
+    background-color: #00a048!important;
+}
+
+.btn-primary{
+    background: #00a748!important;
+    border-color: #00a048!important;
+    color:white;
+}
+.btn-primary:hover, .btn-primary:focus, .btn-primary:disabled {
+    background: #00a748 !important;
+    border-color: #00a748 !important; }
+
+.navbar[class*=bg-] {
+    border: none!important;
+}
+
+.navbar-header[data-background-color=blue2] {
+    background: #00a048!important;
+}
+
+.logo-header[data-background-color=blue2] {
+    background: #00a048!important;
+}
+
+.sidebar .nav.nav-primary > .nav-item a:hover i,
+.sidebar .nav.nav-primary > .nav-item a:focus i,
+.sidebar .nav.nav-primary > .nav-item a[data-toggle=collapse][aria-expanded=true] i,
+.sidebar[data-background-color="white"] .nav.nav-primary > .nav-item a:hover i,
+.sidebar[data-background-color="white"] .nav.nav-primary > .nav-item a:focus i,
+.sidebar[data-background-color="white"] .nav.nav-primary > .nav-item a[data-toggle=collapse][aria-expanded=true] i {
+    color: #00a748 !important;
+}
+
+.sidebar .nav.nav-primary > .nav-item a[data-toggle=collapse][aria-expanded=true]:before,
+.sidebar[data-background-color="white"] .nav.nav-primary > .nav-item a[data-toggle=collapse][aria-expanded=true]:before {
+    background: #00a748 !important;
+}
+
+.sidebar .nav.nav-primary > .nav-item.active a:before,
+.sidebar[data-background-color="white"] .nav.nav-primary > .nav-item.active a:before {
+    background: #00a748 !important;
+}
+
+.sidebar .nav.nav-primary > .nav-item.active a i,
+.sidebar[data-background-color="white"] .nav.nav-primary > .nav-item.active a i {
+    color: #00a748 !important;
+}
+
+.sidebar.sidebar-style-2 .nav.nav-primary > .nav-item.active > a {
+    background: #00a748 !important;
+    box-shadow: 4px 4px 10px 0 rgba(0, 0, 0, 0.1), 4px 4px 15px -5px rgba(21, 114, 232, 0.4) !important;
+}
+
+.sidebar.sidebar-style-2 .nav.nav-primary > .nav-item.active > a:before {
+    background: transparent !important;
+}
+
+.sidebar.sidebar-style-2 .nav.nav-primary > .nav-item.active > a p,
+.sidebar.sidebar-style-2 .nav.nav-primary > .nav-item.active > a i,
+.sidebar.sidebar-style-2 .nav.nav-primary > .nav-item.active > a .caret,
+.sidebar.sidebar-style-2 .nav.nav-primary > .nav-item.active > a span {
+    color: #ffffff !important;
+}
+
+.sidebar.sidebar-style-2 .nav.nav-primary > .nav-item.active > a[data-toggle=collapse][aria-expanded=true] i {
+    color: #ffffff !important;
+}
+
+.table-head-bg-primary thead {
+    border: 1px solid #00a748!important;
+}
+
+.table-head-bg-primary thead th,
+.table-striped-bg-primary tbody tr:nth-of-type(odd) {
+    background: #00a748!important;
+    color: #fff!important;
+    border: 0!important;
+}
+.table-head-bg-primary thead th,
+.table-striped-bg-primary tbody tr:nth-of-type(odd) {
+    background: #00a048!important;
+    color: #fff!important;
+    border: 0!important;
+}
+
+.nav-pills.nav-primary .nav-link.active {
+    background: #00a748;
+    border: 1px solid #00a748;
+}
+.quick-actions-header{
+    background-color: #00a748!important;
+}
+
+.quick-actions.quick-actions-info:after{
+    border-bottom-color: #00a748!important;
+}
+
