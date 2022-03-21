@@ -34,7 +34,7 @@ Route::name('admin.')
             });
 
         Route::name('cuentas.')
-            ->prefix('cuentas')
+            ->prefix('clientes')
             ->group(function () {
 
                 Route::get('/', [CuentaController::class, 'index'])
@@ -73,7 +73,7 @@ Route::name('admin.')
             });
 
         Route::name('suppliers.')
-            ->prefix('suppliers')
+            ->prefix('proveedores')
             ->group(function () {
 
                 Route::get('/', [SupplierController::class, 'index'])

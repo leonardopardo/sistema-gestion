@@ -37,6 +37,11 @@ class Supplier extends Model
         'observaciones' => 'nullable | max:500',
     ];
 
+    public function heading()
+    {
+        return $this->hasOne(Heading::class);
+    }
+
     public function user()
     {
         return $this->hasMany(User::class);

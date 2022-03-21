@@ -1,4 +1,4 @@
-<table id="tabla-cuentas" class="table table-bordered table-striped table-hover table-head-bg-primary" style="width:100%;" >
+<table id="tabla-suppliers" class="table table-bordered table-striped table-hover table-head-bg-primary" style="width:100%;" >
     <thead>
     <tr>
         <th>Razón Social</th>
@@ -13,11 +13,11 @@
 @push('scripts')
     <script>
         jQuery(document).ready(function($){
-            $('#tabla-cuentas').DataTable({
+            $('#tabla-suppliers').DataTable({
                 processing: true,
                 serverSide: true,
                 ajax: {
-                    url: '{{ route ('admin.cuentas.list') }}',
+                    url: '{{ route ('admin.suppliers.list') }}',
                     method: 'POST',
                 },
                 columns:[

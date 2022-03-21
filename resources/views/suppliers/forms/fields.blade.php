@@ -14,14 +14,15 @@
                     ], $errors) }}
                 </div>
                 <div class="col-lg-6 col-md-12">
-                    {{ Form::inputGroup([
-                        'name' => 'actividad',
-                        'label' => 'Actividad',
-                        'placeholder' => 'Ingrese la actividad correspondiente . . .',
-                        'extra' => 'autocomplete=a',
-                        'maxlength' => 250,
-                        'value' => old('actividad', $cuenta->actividad ?? ''),
-                    ], $errors) }}
+                    <div class="form-group">
+                        <label for="heading">Rubro</label>
+                        <select class="form-control" name="heading_id" id="heading">
+                            <option value="">{{ no_data('Seleccione un Rubro') }}</option>
+                            @foreach($headings as $heading)
+                                <option value="{{ $heading->id }}">{{ $heading->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
                 </div>
                 <div class="col-lg-3 col-md-12">
                     {{ Form::inputGroup([

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Contacto;
+use App\Models\Heading;
 use App\Models\Localidad;
 use App\Models\Provincia;
 use App\Models\Supplier;
@@ -16,7 +17,7 @@ class SupplierController extends Controller
     public function index()
     {
         if (request()->ajax()) {
-            $data = Supplier::with('cuentas')->get();
+            $data = Supplier::all();
             return response()->json($data, 200);
         }
 
@@ -26,6 +27,7 @@ class SupplierController extends Controller
 
             return view('suppliers.index', [
                 'provincias' => Provincia::all()->sortBy('nombre'),
+                'headings' => Heading::all()
             ]);
 
         } catch (\Exception $ex) {
@@ -38,8 +40,9 @@ class SupplierController extends Controller
         }
     }
 
-    function list() {
-        $data = Supplier::all();
+    public function list() {
+
+        $data = Supplier::orderBy('razon_social');
 
         return DataTables::of($data)
             ->editColumn('telefono', function ($data) {
@@ -63,7 +66,7 @@ class SupplierController extends Controller
                     : $data->localidad->nombre;
             })
             ->addColumn('actions', function ($b) {
-                return (string) view('cuentas.tables.actions', ['cuenta' => $b]);
+                return (string) view('suppliers.tables.actions', ['supplier' => $b]);
             })
             ->rawColumns(['actions'])
             ->make();
@@ -168,60 +171,6 @@ class SupplierController extends Controller
             flash(MSG_ERROR . $ex->getMessage())
                 ->error()
                 ->important();
-
-            return back()->withInput(Request::all());
-        }
-    }
-
-    public function attachUser(Request $request, Supplier $supplier)
-    {
-        try {
-            if ($request->userExist) {
-                $user = User::find($request->user);
-            } else {
-                $request->validate(User::getRules());
-                $user = User::create([
-                    'name' => $request->name,
-                    'email' => $request->email,
-                    'password' => Hash::make($request->password),
-                ]);
-            }
-
-            $supplier->users()->attach($user->id);
-
-            flash(MSG_SUCCESS . "El usuarios {$user->email} se agregó correctamente.")
-                ->success()->important();
-
-            return back();
-
-        } catch (\Exception $ex) {
-
-            flash(MSG_ERROR . $ex->getMessage())
-                ->error()->important();
-
-            return back()->withInput(\request()->all());
-        }
-    }
-
-    public function detachUser(Request $request, Supplier $supplier)
-    {
-        try {
-
-            $user = User::find($request->userId);
-
-            $supplier
-                ->users()
-                ->detach($request->userId);
-
-            flash(MSG_SUCCESS . "El usuarios {$user->email} se desvinculó correctamente.")
-                ->success()->important();
-
-            return back();
-
-        } catch (\Exception $ex) {
-
-            flash(MSG_ERROR . $ex->getMessage())
-                ->error()->important();
 
             return back()->withInput(Request::all());
         }

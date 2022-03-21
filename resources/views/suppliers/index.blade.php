@@ -6,14 +6,14 @@
     ]
 ])
 
-@section('title', 'Clientes')
+@section('title', 'Proveedores')
 
 @section('breadcrumb')
     @include('layouts.base._breadcrumb', [
-        'title' => 'Clientes',
-        'icon' => 'icon-notebook',
+        'title' => 'Proveedores',
+        'icon' => 'icon-list',
         'crumbs' => [
-            ['route' => route('admin.cuentas.index'), 'icon' => 'icon-notebook', 'text' => 'Clientes'],
+            ['route' => route('admin.cuentas.index'), 'icon' => 'icon-list', 'text' => 'Proveedores'],
             ['route' => '#', 'icon' => 'icon-menu', 'text' => 'Listado']
         ],
         'links' => []
@@ -24,10 +24,10 @@
     <div class="page-inner mt--5">
         @include('flash::message')
         <div class="row">
-            @can('create', new App\Models\Cuenta)
+            @can('create', new App\Models\Supplier)
                 <div class="col-12 mb-3">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-create-cuenta">
-                        <i class="icon-plus"></i> Nuevo Cliente
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-create-proveedor">
+                        <i class="icon-plus"></i> Nuevo Proveedor
                     </button>
                 </div>
             @endcan
@@ -36,13 +36,13 @@
                     <div class="card-header">
                         <div class="card-head-row">
                             <div class="card-title">
-                                <i class="icon-menu"></i> Listado de Cuentas
+                                <i class="icon-menu"></i> Listado de Proveedores
                             </div>
                         </div>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
-                            @include('cuentas.tables.list')
+                            @include('suppliers.tables.list')
                         </div>
                     </div>
                 </div>
@@ -50,8 +50,8 @@
         </div>
     </div>
 
-    @can('create', new \App\Models\Cuenta)
-        @include('cuentas.modals.create')
+    @can('create', new \App\Models\Supplier)
+        @include('suppliers.modals.create')
     @endcan
 @endsection
 

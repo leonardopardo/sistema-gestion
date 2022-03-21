@@ -1,11 +1,11 @@
-{{ Form::open(['action' => route('admin.cuentas.update', $cuenta), 'enctype' => 'multipart/form-data', 'autocomplete' => 'off']) }}
+{{ Form::open(['action' => route('admin.supplier.update', $supplier), 'enctype' => 'multipart/form-data', 'autocomplete' => 'off']) }}
     <input autocomplete="false" type="hidden" type="text" style="display:none;">
-    @include('cuentas.forms.fields', ['cuenta' => $cuenta, 'paises' => $paises])
-    @can('update', new \App\Models\Cuenta)
+    @include('cuentas.forms.fields', ['supplier' => $supplier])
+    @can('update', new \App\Models\Supplier)
     <div class="row">
             <div class="col-lg-12">
                 <div class="form-group">
-                    @include('layouts.base.buttons._cancelar', ['cancelar' => route('admin.cuentas.index')])
+                    @include('layouts.base.buttons._cancelar', ['cancelar' => route('admin.supplier.index')])
                 </div>
             </div>
         </div>
