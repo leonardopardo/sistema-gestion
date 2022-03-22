@@ -159,7 +159,6 @@ Route::name('admin.')
                     ->name('async');
             });
 
-
         Route::name('help.')
             ->group(function () {
                 Route::get('/tutoriales', [HelpController::class, 'tutoriales'])

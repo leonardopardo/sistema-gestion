@@ -39,7 +39,7 @@ class Supplier extends Model
 
     public function heading()
     {
-        return $this->hasOne(Heading::class);
+        return $this->belongsTo(Heading::class);
     }
 
     public function user()

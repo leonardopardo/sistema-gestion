@@ -42,7 +42,7 @@ class SupplierController extends Controller
 
     public function list() {
 
-        $data = Supplier::orderBy('razon_social');
+        $data = Supplier::with('heading')->orderBy('razon_social');
 
         return DataTables::of($data)
             ->editColumn('telefono', function ($data) {
@@ -108,9 +108,10 @@ class SupplierController extends Controller
             if ($supplier->provincia)
                 $localidades = Localidad::whereProvinciaCodigo($supplier->provincia->codigo)->get();
 
-            return view('cuentas.edit', [
+            return view('suppliers.edit', [
                 'users' => User::all(),
                 'supplier' => $supplier,
+                'headings' => Heading::all(),
                 'provincias' => Provincia::all(),
                 'localidades' => $localidades,
             ]);

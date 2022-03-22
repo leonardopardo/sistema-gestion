@@ -10,7 +10,7 @@
                         'extra' => 'autocomplete=a',
                         'required' => true,
                         'maxlength' => 250,
-                        'value' => old('razon_social', $cuenta->razon_social ?? ''),
+                        'value' => old('razon_social', $supplier->razon_social ?? ''),
                     ], $errors) }}
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -19,7 +19,13 @@
                         <select class="form-control" name="heading_id" id="heading">
                             <option value="">{{ no_data('Seleccione un Rubro') }}</option>
                             @foreach($headings as $heading)
-                                <option value="{{ $heading->id }}">{{ $heading->name }}</option>
+                                @isset($headings)
+                                    @isset($supplier)
+                                        <option value="{{ $heading->id }}" {{ selected($heading->id, $supplier->heading->id) }}>{{ $heading->name }}</option>
+                                    @else
+                                        <option value="{{ $heading->id }}">{{ $heading->name }}</option>
+                                    @endif
+                                @endisset
                             @endforeach
                         </select>
                     </div>
@@ -32,7 +38,7 @@
                         'extra' => 'autocomplete=a',
                         'required' => true,
                         'maxlength' => 250,
-                        'value' => old('documento', $cuenta->documento ?? ''),
+                        'value' => old('documento', $supplier->documento ?? ''),
                     ], $errors) }}
                 </div>
                 <div class="col-lg-4 col-md-12">
@@ -41,9 +47,9 @@
                         <select name="provincia_id" id="provincia_id" class="form-control" data-action="{{ route('admin.localidades.async') }}">
                             <option value="">{{ no_data('Seleccione una Provincia') }}</option>
                             @foreach($provincias as $provincia)
-                                @isset($cuenta)
-                                    @if($cuenta->provincia)
-                                        <option value="{{ $provincia->id }}" {{ selected($provincia->id, $cuenta->provincia->id) }}>{{ $provincia->nombre }}</option>
+                                @isset($supplier)
+                                    @if($supplier->provincia)
+                                        <option value="{{ $provincia->id }}" {{ selected($provincia->id, $supplier->provincia->id) }}>{{ $provincia->nombre }}</option>
                                     @else
                                         <option value="{{ $provincia->id }}">{{ $provincia->nombre }}</option>
                                     @endif
@@ -63,9 +69,9 @@
                         </label>
                         <select name="localidad_id" id="localidad_id" class="form-control select2" style="width: 100%;">
                             @isset($localidades)
-                                @if($cuenta->localidad)
+                                @if($supplier->localidad)
                                     @foreach($localidades as $localidad)
-                                        <option value="{{ $localidad->id }}" {{ selected($localidad->id, $cuenta->localidad->id) }}>{{ $localidad->nombre }}</option>
+                                        <option value="{{ $localidad->id }}" {{ selected($localidad->id, $supplier->localidad->id) }}>{{ $localidad->nombre }}</option>
                                     @endforeach
                                 @else
                                     <option value="">{{ no_data('Seleccione una Localidad') }}</option>
@@ -85,7 +91,7 @@
                         'label' => 'Dirección',
                         'placeholder' => 'Ingrese una dirección . . .',
                         'maxlength' => 250,
-                        'value' => old('direccion', $cuenta->direccion ?? ''),
+                        'value' => old('direccion', $supplier->direccion ?? ''),
                     ], $errors) }}
                 </div>
                 <div class="col-lg-2 col-md-12">
@@ -95,7 +101,7 @@
                         'placeholder' => 'CP',
                         'extra' => 'autocomplete=a',
                         'maxlength' => 10,
-                        'value' => old('codigo_postal', $cuenta->codigo_postal ?? ''),
+                        'value' => old('codigo_postal', $supplier->codigo_postal ?? ''),
                     ], $errors) }}
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -103,7 +109,7 @@
                         'name' => 'telefono',
                         'label' => 'Teléfono',
                         'placeholder' => '000 0000 0000',
-                        'value' => old('telefono', $cuenta->telefono ?? ''),
+                        'value' => old('telefono', $supplier->telefono ?? ''),
                     ]) }}
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -112,7 +118,7 @@
                         'name' => 'email',
                         'label' => 'Email',
                         'placeholder' => 'nombre@dominio.com',
-                        'value' => old('email', $cuenta->email ?? ''),
+                        'value' => old('email', $supplier->email ?? ''),
                     ]) }}
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -121,7 +127,7 @@
                         'name' => 'contacto_nombre',
                         'label' => 'Contacto',
                         'placeholder' => 'Nombre y Apellido',
-                        'value' => old('email', $cuenta->contacto_nombre ?? ''),
+                        'value' => old('email', $supplier->contacto_nombre ?? ''),
                     ]) }}
                 </div>
                 <div class="col-lg-6 col-md-12">
@@ -129,14 +135,14 @@
                         'name' => 'contacto_cargo',
                         'label' => 'Cargo',
                         'placeholder' => 'Cargo del Contacto',
-                        'value' => old('email', $cuenta->contacto_cargo ?? ''),
+                        'value' => old('email', $supplier->contacto_cargo ?? ''),
                     ]) }}
                 </div>
                 <div class="col-lg-12 col-md-12">
                     {{ Form::textarea([
                         'name' => 'observaciones',
                         'label' => 'Observaciones',
-                        'value' => old('observaciones', $cuenta->observaciones ?? ''),
+                        'value' => old('observaciones', $supplier->observaciones ?? ''),
                         'rows' => 3
                     ]) }}
                 </div>

@@ -59,7 +59,7 @@
     @if(count($errors->all()) > 0)
         <script type="text/javascript">
             jQuery(document).ready(function($){
-                $('#modal-create-cuenta').modal('show');
+                $('#modal-create-supplier').modal('show');
             });
         </script>
     @endif

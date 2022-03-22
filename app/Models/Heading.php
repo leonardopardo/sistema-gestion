@@ -16,4 +16,8 @@ class Heading extends Model
         'name' => 'required | max:191',
         'description' => 'nullable | max:191',
     ];
+
+    public function suppliers(){
+        $this->hasMany(Supplier::class);
+    }
 }

@@ -1,4 +1,4 @@
-{{ Form::open(['action' => route('admin.cuentas.store'), 'enctype' => 'multipart/form-data', 'autocomplete' => 'off']) }}
+{{ Form::open(['action' => route('admin.suppliers.store'), 'enctype' => 'multipart/form-data', 'autocomplete' => 'off']) }}
     <input autocomplete="false" type="hidden" type="text" style="display:none;">
     @include('suppliers.forms.fields')
     <div class="row">

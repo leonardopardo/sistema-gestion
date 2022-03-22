@@ -13,11 +13,11 @@
                 <div class="form-group">
                     <label>Rubro</label>
                     <div class="form-control">
-                        {{ $supplier->heading_id ?? no_data()}}
+                        {{ $supplier->heading->name ?? no_data()}}
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-12">
+            <div class="col-lg-3 col-md-12">
                 <div class="form-group">
                     <label>N° de Identificación</label>
                     <div class="form-control">
@@ -25,7 +25,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12">
+            <div class="col-lg-5 col-md-12">
                 <div class="form-group">
                     <label>Provincia</label>
                     <div class="form-control">
@@ -33,7 +33,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12">
+            <div class="col-lg-4 col-md-12">
                 <div class="form-group">
                     <label>Localidad</label>
                     <div class="form-control">
@@ -100,7 +100,6 @@
         </div>
     </div>
 </div>
-
 
 <div class="row">
     <div class="col-lg-12">

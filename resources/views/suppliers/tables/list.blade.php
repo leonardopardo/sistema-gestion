@@ -2,6 +2,7 @@
     <thead>
     <tr>
         <th>Razón Social</th>
+        <th>Rubro</th>
         <th>Email</th>
         <th>Teléfono</th>
         <th>Acciones</th>
@@ -22,6 +23,7 @@
                 },
                 columns:[
                     { data: 'razon_social', sortable: true, searchable: true },
+                    { data: 'heading.name', sortable: true, searchable: true },
                     { data: 'email', sortable: false, searchable: true },
                     { data: 'telefono', sortable: false, searchable: true },
                     { data: 'actions', sortable: false, searchable: false }
