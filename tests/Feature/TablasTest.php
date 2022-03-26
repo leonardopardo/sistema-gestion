@@ -8,12 +8,12 @@ use Illuminate\Foundation\Testing\WithoutMiddleware;
 use Spatie\Permission\Models\Role;
 use Tests\TestCase;
 
-class CuentasTest extends TestCase
+class TablasTest extends TestCase
 {
     use WithoutMiddleware, RefreshDatabase;
 
     /** @test */
-    public function debe_crear_una_cuenta()
+    public function debe_crear_una_categoria()
     {
         $userAdmin = factory(User::class)
             ->create();
@@ -24,11 +24,10 @@ class CuentasTest extends TestCase
         $this
             ->withoutExceptionHandling()
             ->actingAs($userAdmin)
-            ->post('/clientes', [
-                'razon_social' => 'Leonardo Pardo',
-                'documento' => '20289867366',
+            ->post('/categorias', [
+                'name' => 'Librería',
+                'description' => 'Artículos de librería',
             ])
             ->assertStatus(302);
     }
 }
-

@@ -31,9 +31,7 @@ class Supplier extends Model
         'codigo_postal' => 'nullable | max:10',
         'telefono' => 'nullable | max:20',
         'email' => 'nullable | email | max:191',
-        'actividad' => 'nullable | max:191',
-        'contacto_nombre' => 'nullable | max:191',
-        'contacto_cargo' => 'nullable | max:191',
+        'heading_id' => 'nullable',
         'observaciones' => 'nullable | max:500',
     ];
 

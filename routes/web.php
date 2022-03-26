@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CuentaController;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\InvoiceController;
@@ -94,15 +95,6 @@ Route::name('admin.')
                 Route::post('/{supplier}', [SupplierController::class, 'destroy'])
                     ->name('delete');
 
-                Route::post('/{supplier}/contacto/add', [SupplierController::class, 'addContact'])
-                    ->name('contact.add');
-
-                Route::post('/{contacto}/contacto/update', [SupplierController::class, 'updateContact'])
-                    ->name('contact.update');
-
-                Route::post('/{supplier}/contacto/delete', [SupplierController::class, 'deleteContact'])
-                    ->name('contact.delete');
-
             });
 
         Route::name('usuarios.')
@@ -157,6 +149,27 @@ Route::name('admin.')
 
                 Route::post('/async', [LocalidadController::class, 'getByParent'])
                     ->name('async');
+            });
+
+        Route::name('categories.')
+            ->prefix('categorias')
+            ->group(function(){
+
+                Route::get('/', [CategoriesController::class, 'index'])
+                    ->name('index');
+
+                Route::post('/', [CategoriesController::class, 'store'])
+                    ->name('store');
+
+                Route::get('/editar/{category}', [CategoriesController::class, 'edit'])
+                    ->name('edit');
+
+                Route::post('/actualizar/{category}', [CategoriesController::class, 'update'])
+                    ->name('update');
+
+                Route::post('/eliminar/{category}', [CategoriesController::class, 'delete'])
+                    ->name('delete');
+
             });
 
         Route::name('help.')

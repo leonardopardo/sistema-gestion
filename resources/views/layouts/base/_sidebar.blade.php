@@ -79,7 +79,7 @@
                     <div class="collapse" id="tablas" style="">
                         <ul class="nav nav-collapse">
                             <li>
-                                <a href="">
+                                <a href="{{ route('admin.categories.index') }}">
                                     <i class="icon-list"></i> Categorías
                                 </a>
                             </li>
