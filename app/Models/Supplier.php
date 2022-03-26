@@ -50,11 +50,6 @@ class Supplier extends Model
         return $this->belongsToMany(User::class);
     }
 
-    public function contactos()
-    {
-        return $this->hasMany(Contacto::class);
-    }
-
     public function provincia()
     {
         return $this->belongsTo(Provincia::class);

@@ -2,11 +2,13 @@
 
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\CuentaController;
+use App\Http\Controllers\HeadingsCongroller;
 use App\Http\Controllers\HelpController;
 use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\LocalidadController;
 use App\Http\Controllers\MainController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\RubrosController;
 use App\Http\Controllers\SupplierController;
 use App\Http\Controllers\UserController;
 
@@ -167,7 +169,28 @@ Route::name('admin.')
                 Route::post('/actualizar/{category}', [CategoriesController::class, 'update'])
                     ->name('update');
 
-                Route::post('/eliminar/{category}', [CategoriesController::class, 'delete'])
+                Route::post('/eliminar/{category}', [CategoriesController::class, 'destroy'])
+                    ->name('delete');
+
+            });
+
+        Route::name('headings.')
+            ->prefix('rubros')
+            ->group(function(){
+
+                Route::get('/', [HeadingsCongroller::class, 'index'])
+                    ->name('index');
+
+                Route::post('/', [HeadingsCongroller::class, 'store'])
+                    ->name('store');
+
+                Route::get('/editar/{heading}', [HeadingsCongroller::class, 'edit'])
+                    ->name('edit');
+
+                Route::post('/actualizar/{heading}', [HeadingsCongroller::class, 'update'])
+                    ->name('update');
+
+                Route::post('/eliminar/{heading}', [HeadingsCongroller::class, 'destroy'])
                     ->name('delete');
 
             });

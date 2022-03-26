@@ -1,4 +1,4 @@
-<table id="tabla-categories" class="table table-bordered table-striped table-hover table-head-bg-primary" style="width:100%;" >
+<table id="tabla-headings" class="table table-bordered table-striped table-hover table-head-bg-primary" style="width:100%;" >
     <thead>
     <tr>
         <th>#</th>
@@ -8,33 +8,33 @@
     </tr>
     </thead>
     <tbody>
-        @foreach($categories as $c)
+        @foreach($headings as $h)
             <tr>
-                <td>{{ $c->id }}</td>
-                <td>{{ $c->name }}</td>
-                <td>{{ $c->description }}</td>
+                <td>{{ $h->id }}</td>
+                <td>{{ $h->name }}</td>
+                <td>{{ $h->description }}</td>
                 <td>
                     {{-- view --}}
-                    <a href="#" data-toggle="modal" data-target="#modal-show-category-{{$c->id}}" title="Ver Información">
+                    <a href="#" data-toggle="modal" data-target="#modal-show-heading-{{$h->id}}" title="Ver Información">
                         <i class="icon-eye m-2 large text-info"></i>
                     </a>
-                    @include('categories.modals.show', ['category' => $c])
+                    @include('headings.modals.show', ['heading' => $h])
                     {{-- /view --}}
 
                     {{-- update --}}
-                    @can('update', $c)
-                        <a href="{{ route('admin.categories.edit', $c) }}" title="Acceder">
+                    @can('update', $h)
+                        <a href="{{ route('admin.headings.edit', $h) }}" title="Acceder">
                             <i class="icon-arrow-right-circle m-2 large text-primary"></i>
                         </a>
                     @endcan
                     {{-- /update --}}
 
                     {{-- delete --}}
-                    @can('delete', $c)
-                        <a href="#" data-toggle="modal" data-target="#modal-delete-category-{{ $c->id }}" title="Eliminar">
+                    @can('delete', $h)
+                        <a href="#" data-toggle="modal" data-target="#modal-delete-headings-{{ $h->id }}" title="Eliminar">
                             <i class="icon-trash m-2 large text-danger"></i>
                         </a>
-                        @include('categories.modals.delete', ['category' => $c])
+                        @include('headings.modals.delete', ['heading' => $h])
                     @endcan
                     {{-- /delete --}}
                 </td>
@@ -46,7 +46,7 @@
 @push('scripts')
     <script>
         jQuery(document).ready(function($){
-            $('#tabla-categories').DataTable({
+            $('#tabla-headings').DataTable({
                 processing: true,
                 order: [1, 'asc']
             });

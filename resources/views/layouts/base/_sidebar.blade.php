@@ -1,4 +1,4 @@
-<div class="sidebar sidebar-style-2">
+<div class="sidebar sidebar-style-2" data-background-color="white">
     <div class="sidebar-wrapper scrollbar scrollbar-inner">
         <div class="sidebar-content">
 
@@ -70,32 +70,18 @@
                 {{-- Menu Section Administración--}}
                 @include('layouts.base.sidebar._title_section', ['title' => 'Administración'])
 
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#tablas" class="collapsed" aria-expanded="false">
-                        <i class="icon-grid"></i>
-                        <p>Tablas</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="tablas" style="">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="{{ route('admin.categories.index') }}">
-                                    <i class="icon-list"></i> Categorías
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="icon-list"></i> Listas
-                                </a>
-                            </li>
-                            <li>
-                                <a href="">
-                                    <i class="icon-list"></i> Rubros
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
+                {{-- Tablas --}}
+                @can('view', new \App\User())
+                    @include('layouts.base.sidebar._menu', [
+                        'title' => 'Tablas',
+                        'icon' => 'icon-grid',
+                        'route' => '',
+                        'items' => [
+                            ['route' => route('admin.categories.index'), 'text' => 'Categorías', 'icon' => 'icon-list'],
+                            ['route' => route('admin.headings.index'), 'text' => 'Rubros', 'icon' => 'icon-list'],
+                        ]
+                    ])
+                @endcan
 
                 {{-- Permisos --}}
                 @can('view', new \App\User())
@@ -110,23 +96,17 @@
                     ])
                 @endcan
 
-                <li class="nav-item">
-                    <a data-toggle="collapse" href="#settings" class="collapsed" aria-expanded="false">
-                        <i class="icon-settings"></i>
-                        <p>Configuración</p>
-                        <span class="caret"></span>
-                    </a>
-                    <div class="collapse" id="settings" style="">
-                        <ul class="nav nav-collapse">
-                            <li>
-                                <a href="/">
-                                    <i class="icon-list"></i> Plantilla
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
-
+                {{-- Configuraciones --}}
+                @can('view', new \App\User())
+                    @include('layouts.base.sidebar._menu', [
+                        'title' => 'Configuración',
+                        'icon' => 'icon-settings',
+                        'route' => '',
+                        'items' => [
+                            ['route' => '', 'text' => 'Plantillas', 'icon' => 'icon-list']
+                        ]
+                    ])
+                @endcan
 
             </ul>
         </div>

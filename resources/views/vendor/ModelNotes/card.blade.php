@@ -6,7 +6,7 @@
           Agregar Nota
         </button>
     </div>
-    <div style="{{ (config('notes.display.scrolleable')) ? 'max-height: 300px; overflow-y:auto' : '' }}" class="card-body">
+    <div style="{{ (config('notes.display.scrolleable')) ? 'max-height: 800px; overflow-y:auto' : '' }}" class="card-body">
         @foreach ($model->notes->reverse() as $item)
             <div class="row">
                 <div class="col-md-12">

@@ -6,6 +6,7 @@
     @include('layouts.base._panel_header', [
         'title' => 'Panel Principal',
         'icon' => 'icon-rocket',
+        'color' => 'primary',
         'subtitle' => 'Sistema de Gestión Documental',
         'links' => []
     ])

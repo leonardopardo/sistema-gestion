@@ -32,7 +32,7 @@
 		@include('layouts.base._styles')
 		@stack('styles')
 	</head>
-	<body>
+	<body data-background-color="bg1">
         @inject('one_drive', 'App\Helpers\TokenCache')
 		<div class="wrapper">
 			{{-- Top--}}

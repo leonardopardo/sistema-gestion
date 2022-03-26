@@ -1,5 +1,5 @@
 <div class="main-header">
-    <div class="logo-header" data-background-color="blue2">
+    <div class="logo-header" data-background-color="blue">
         <a href="#" class="logo">
             <p class="navbar-brand text-white">
                 <i class="icon-social-dropbox"></i> Gestión <small class="text-white-50">v1.0</small>
