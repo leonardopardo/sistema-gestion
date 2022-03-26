@@ -1,7 +1,5 @@
-# SiGEx
+# Sistema Gestión
 
 ```
-Sistema de Gestión de Expedientes
-García Pulles & Calatrava
-Abogados
+Sistema de Gestión de Productos
 ```

@@ -14,26 +14,41 @@
                 <td>{{ $c->name }}</td>
                 <td>{{ $c->description }}</td>
                 <td>
-                    <a href="#" data-toggle="modal" data-target="#modal-show-juzgado-{{$c->id}}" title="Ver Información">
+                    {{-- view --}}
+                    <a href="#" data-toggle="modal" data-target="#modal-show-category-{{$c->id}}" title="Ver Información">
                         <i class="icon-eye m-2 large text-info"></i>
                     </a>
-
                     @include('categories.modals.show', ['category' => $c])
-
+                    {{-- /view --}}
+                    {{-- update --}}
                     @can('update', $c)
                         <a href="{{ route('admin.categories.edit', $c) }}" title="Acceder">
                             <i class="icon-arrow-right-circle m-2 large text-primary"></i>
                         </a>
                     @endcan
-
-                    @can('delete', $categories)
+                    {{-- /update --}}
+                    {{-- delete --}}
+                    @can('delete', $c)
                         <a href="#" data-toggle="modal" data-target="#modal-delete-category-{{ $c->id }}" title="Eliminar">
                             <i class="icon-trash m-2 large text-danger"></i>
                         </a>
                         @include('categories.modals.delete')
                     @endcan
+                    {{-- /delete --}}
                 </td>
             </tr>
         @endforeach
     </tbody>
 </table>
+
+@push('scripts')
+    <script>
+        jQuery(document).ready(function($){
+            $('#tabla-categories').DataTable({
+                processing: true,
+                order: [1, 'asc']
+            });
+        });
+    </script>
+@endpush
+

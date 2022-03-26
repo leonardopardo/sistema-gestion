@@ -97,23 +97,36 @@
                     </div>
                 </li>
 
-                {{-- Usuarios --}}
+                {{-- Permisos --}}
                 @can('view', new \App\User())
-                    @include('layouts.base.sidebar._menu_badge', [
-                        'title' => 'Usuarios',
-                        'icon' => 'icon-user-following',
-                        'route' => route('admin.usuarios.index'),
+                    @include('layouts.base.sidebar._menu', [
+                        'title' => 'Permisos',
+                        'icon' => 'icon-lock-open',
+                        'route' => '',
+                        'items' => [
+                            ['route' => route('admin.usuarios.index'), 'text' => 'Usuarios', 'icon' => 'icon-user-following'],
+                            ['route' => route('admin.roles.index'), 'text' => 'Roles', 'icon' => 'icon-layers'],
+                        ]
                     ])
                 @endcan
 
-                {{-- Roles --}}
-                @can('view', new \App\Models\Role())
-                    @include('layouts.base.sidebar._menu_badge', [
-                        'title' => 'Roles',
-                        'icon' => 'icon-layers',
-                        'route' => route('admin.roles.index'),
-                    ])
-                @endcan
+                <li class="nav-item">
+                    <a data-toggle="collapse" href="#settings" class="collapsed" aria-expanded="false">
+                        <i class="icon-settings"></i>
+                        <p>Configuración</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="settings" style="">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a href="/">
+                                    <i class="icon-list"></i> Plantilla
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+
 
             </ul>
         </div>

@@ -2,15 +2,15 @@
     'components' => ['select2']
 ])
 
-@section('title', 'Juzgado '.$juzgado->nombre)
+@section('title', 'Categorías '.$category->name)
 
 @section('breadcrumb')
     @include('layouts.base._breadcrumb', [
-        'title' => 'Juzgados',
-        'icon' => 'icon-briefcase',
+        'title' => 'Categorías',
+        'icon' => 'icon-list',
         'crumbs' => [
-            ['route' => route('admin.juzgados.index'), 'icon' => 'icon-briefcase', 'text' => 'Juzgados'],
-            ['route' => route('admin.juzgados.edit', $juzgado), 'text' => $juzgado->nombre ],
+            ['route' => route('admin.categories.index'), 'icon' => 'icon-list', 'text' => 'Categorías'],
+            ['route' => route('admin.categories.edit', $category), 'text' => $category->name ],
         ]
     ])
 @endsection
@@ -27,18 +27,18 @@
 <div class="page-inner mt--5">
     <div class="row">
         <div class="col-md-12 mb-3">
-            <a href="{{ route('admin.juzgados.index') }}" class="btn btn-primary">
-                <i class="icon-arrow-left"></i> Ir a Listado de Juzgados
+            <a href="{{ route('admin.categories.index') }}" class="btn btn-primary">
+                <i class="icon-arrow-left"></i> Ir a Listado de Categorías
             </a>
         </div>
         <div class="col-12">
             @include('flash::message')
             <div class="card">
                 <div class="card-header">
-                    <i class="icon-pencil" aria-hidden="true"></i> Editar Juzgado: {{ $juzgado->nombre }}
+                    <i class="icon-pencil" aria-hidden="true"></i> Editar Categoría: {{ $category->name }}
                 </div>
                 <div class="card-body">
-                    @include('juzgados.forms.update')
+                    @include('categories.forms.update')
                 </div>
             </div>
         </div>

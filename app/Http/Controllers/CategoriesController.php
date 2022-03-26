@@ -121,5 +121,4 @@ class CategoriesController extends Controller
             return back();
         }
     }
-
 }

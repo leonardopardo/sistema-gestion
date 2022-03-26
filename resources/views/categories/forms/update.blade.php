@@ -1,10 +1,10 @@
-{{ Form::open(['action' => route('admin.juzgados.update', $juzgado), 'enctype' => 'multipart/form-data', 'autocomplete' => 'off']) }}
+{{ Form::open(['action' => route('admin.categories.update', $category), 'enctype' => 'multipart/form-data', 'autocomplete' => 'off']) }}
     <input autocomplete="false" type="hidden" type="text" style="display:none;">
-    @include('juzgados.forms.fields', ['juzgado' => $juzgado])
+    @include('categories.forms.fields', ['category' => $category])
     <div class="row">
         <div class="col-lg-12">
             <div class="form-group">
-                @include('layouts.base.buttons._cancelar', ['cancelar' => route('admin.juzgados.index')])
+                @include('layouts.base.buttons._cancelar', ['cancelar' => route('admin.categories.index')])
             </div>
         </div>
     </div>
